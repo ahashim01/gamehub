@@ -13,7 +13,7 @@ const GameCard = ({ game }: Props) => {
     "/media/crop/600/400/"
   );
   return (
-    <Card width="250px" borderRadius={10} overflow={"hidden"}>
+    <Card>
       <Image src={optimizedImage} />
       <CardBody>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
