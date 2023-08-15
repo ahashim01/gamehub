@@ -34,11 +34,12 @@ const useGame = () => {
       .get<GamesListResponse>("/games", { signal: controller.signal })
       .then((response) => {
         setGames(response.data.results);
-        setLoading(false);
       })
       .catch((error) => {
         if (error instanceof CanceledError) return;
         setError(error.message);
+      })
+      .finally(() => {
         setLoading(false);
       });
 
