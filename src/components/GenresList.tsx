@@ -11,9 +11,10 @@ import optimizedImage from "../services/utils";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenresList = ({ onSelectedGenre }: Props) => {
+const GenresList = ({ selectedGenre, onSelectedGenre }: Props) => {
   const { data, loading } = useGenres();
 
   if (loading) {
@@ -33,6 +34,7 @@ const GenresList = ({ onSelectedGenre }: Props) => {
             />
             <Button
               onClick={() => onSelectedGenre(genre)}
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               fontSize={"lg"}
               variant={"link"}
             >
